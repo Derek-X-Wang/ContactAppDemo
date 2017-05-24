@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_detail"
+    tools:context="com.derekxw.contactlist.controllers.ContactDetailFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="14dp"
+            android:divider="@drawable/divider_trans"
+            android:showDividers="middle">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/text_cap_image"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/detail_first_name"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="First Name"
+                        android:inputType="none"/>
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"/>
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/detail_last_name"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="Last Name"
+                        android:inputType="none"/>
+                </LinearLayout>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/detail_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone"
+                    app:met_iconLeft="@drawable/ic_call_black_24dp"
+                    android:inputType="none"/>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/detail_dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date of Birth"
+                    app:met_iconLeft="@drawable/ic_cake_black_24dp"
+                    android:inputType="none"/>
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/detail_zip_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Zip Code"
+                    app:met_iconLeft="@drawable/ic_home_black_24dp"
+                    android:inputType="none"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_contact_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_mode_edit_white_24dp" />
+</android.support.design.widget.CoordinatorLayout>
+

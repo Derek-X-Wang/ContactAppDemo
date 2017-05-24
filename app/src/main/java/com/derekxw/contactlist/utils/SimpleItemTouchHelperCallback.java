@@ -16,8 +16,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.derekxw.contactlist.R;
-
-import org.zakariya.stickyheaders.SectioningAdapter;
+import com.derekxw.contactlistview.ContactRecyclerView;
 
 /**
  * based off https://github.com/nemanja-kovacevic/recycler-view-swipe-to-delete
@@ -26,11 +25,13 @@ import org.zakariya.stickyheaders.SectioningAdapter;
 
 public class SimpleItemTouchHelperCallback extends ItemTouchHelper.SimpleCallback {
 
+    private static final String TAG = "SimpleItemTouchHelper";
     // we want to cache these and not allocate anything repeatedly in the onChildDraw method
     private boolean initiated;
     private Drawable backgroundCall;
     private Drawable backgroundDelete;
     private Activity host;
+    private RecyclerView recyclerView;
     private ContactListAdapter adapter;
     private SwipeEventListener eventListener;
 
@@ -42,10 +43,11 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.SimpleCallbac
         this.eventListener = eventListener;
     }
 
-    public SimpleItemTouchHelperCallback(Activity activity, ContactListAdapter sectioningAdapter, int dragDirs, int swipeDirs) {
+    public SimpleItemTouchHelperCallback(Activity activity, RecyclerView recyclerView, int dragDirs, int swipeDirs) {
         super(dragDirs, swipeDirs);
-        host = activity;
-        adapter = sectioningAdapter;
+        this.host = activity;
+        this.recyclerView = recyclerView;
+        this.adapter = (ContactListAdapter) recyclerView.getAdapter();
     }
 
     private void init() {
@@ -72,18 +74,25 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.SimpleCallbac
         ContactListAdapter.ItemViewHolder ivh = (ContactListAdapter.ItemViewHolder) viewHolder;
         switch (swipeDir) {
             case ItemTouchHelper.LEFT:
+                // delete
                 char firstChar = ivh.personLastNameTextView.getText().toString().charAt(0);
-                adapter.delete(ivh.id, firstChar);
+                // make sure it is uppercase
+                firstChar = Character.toUpperCase(firstChar);
                 int sectionIndex = adapter.getSectionIndex(firstChar);
-                Log.d("ssssssssssssssss", "onSwiped: "+ sectionIndex+" "+ivh.getPositionInSection());
-                adapter.notifySectionItemRemoved(sectionIndex, ivh.getPositionInSection());
+                int itemIndexInSection = adapter.getPositionInSection(sectionIndex, ivh.id);
+                adapter.delete(ivh.id, firstChar);
+                // ivh.getPositionInSection() may return wrong index
+                recyclerView.getRecycledViewPool().clear();
+                adapter.notifySectionItemRemoved(sectionIndex, itemIndexInSection);
                 if (adapter.getNumberOfItemsInSection(sectionIndex) == 0) {
+                    // section is empty, remove header
                     adapter.deleteHeader(sectionIndex);
                     adapter.notifySectionRemoved(sectionIndex);
                 }
                 eventListener.onItemRemoved();
                 break;
             case ItemTouchHelper.RIGHT:
+                // make a phone call
                 String number = ivh.phone;
                 Uri call = Uri.parse("tel:" + number);
                 Intent surf = new Intent(Intent.ACTION_DIAL, call);

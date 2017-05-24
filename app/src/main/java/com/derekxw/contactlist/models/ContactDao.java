@@ -80,4 +80,21 @@ public class ContactDao {
             e.printStackTrace();
         }
     }
+
+    public void update(Contact contact) {
+        try {
+            contactDao.update(contact);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public long count() {
+        try {
+            return contactDao.countOf();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }

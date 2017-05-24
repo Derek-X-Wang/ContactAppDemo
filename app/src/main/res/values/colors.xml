@@ -13,4 +13,9 @@
     <color name="bg_item_dragging_active_state">#ffff9999</color>
     <color name="bg_item_swiping_state">#ffddddff</color>
     <color name="bg_item_swiping_active_state">#ff9999ff</color>
+
+    <color name="button_delete_pressed">#ed1722</color>
+    <color name="button_delete">#ffffff</color>
+    <color name="text_image">#a3a3a3</color>
+    <color name="transparent">#00ffffff</color>
 </resources>

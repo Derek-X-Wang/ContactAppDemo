@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "com.derekxw.contactlist"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 21
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -25,17 +25,29 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-    compile 'com.isanwenyu.highlight:highlight:1.5.1'
+    // SearchView
     compile 'com.lapism:searchview:4.0'
-    compile 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
-    compile ('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.10.6@aar'){
-        transitive=true
-    }
+    // Text Image
+    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    // Material Edit Text
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    // Date picker
+    compile 'com.wdullaer:materialdatetimepicker:3.2.1'
+    // Button
+    compile 'com.github.dmytrodanylyk:android-morphing-button:98a4986e56'
+    // Alert
+    compile 'cn.pedant.sweetalert:library:1.3'
+    // Safer handler
+    compile 'com.badoo.mobile:android-weak-handler:1.1'
+    // Prefs wrapper
+    compile 'com.pixplicity.easyprefs:library:1.8.1@aar'
 
     compile project(':contactrecyclerview')
+    // base off <compile 'org.zakariya.stickyheaders:stickyheaders:0.7.6'>
+    compile project(':stickyheader')
+
 }

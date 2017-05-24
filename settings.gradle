@@ -1,1 +1,1 @@
-include ':app', ':contactrecyclerview'
+include ':app', ':contactrecyclerview', ':stickyheader'

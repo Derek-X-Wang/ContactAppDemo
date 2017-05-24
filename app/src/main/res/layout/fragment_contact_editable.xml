@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_editable">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:divider="@drawable/divider_trans"
+            android:showDividers="middle"
+            android:padding="14dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_mode_edit_black_48dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/editable_first_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="First Name"
+                    app:met_floatingLabel="highlight"
+                    android:inputType="text"/>
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent"/>
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/editable_last_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Last Name"
+                    app:met_floatingLabel="highlight"
+                    android:inputType="text"/>
+            </LinearLayout>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/editable_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone"
+                app:met_iconLeft="@drawable/ic_call_black_24dp"
+                app:met_floatingLabel="highlight"
+                android:inputType="numberDecimal"/>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/editable_dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date of Birth"
+                app:met_iconLeft="@drawable/ic_cake_black_24dp"
+                app:met_floatingLabel="highlight"
+                android:inputType="date"/>
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/editable_zip_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Zip Code"
+                app:met_iconLeft="@drawable/ic_home_black_24dp"
+                app:met_floatingLabel="highlight"
+                android:inputType="numberDecimal"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editable_delete_button"
+                android:layout_gravity="center_horizontal"
+                android:text="Delete"
+                android:textColor="@color/button_delete_pressed"
+                android:background="@color/transparent"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_contact_editable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_check_white_24dp" />
+</android.support.design.widget.CoordinatorLayout>

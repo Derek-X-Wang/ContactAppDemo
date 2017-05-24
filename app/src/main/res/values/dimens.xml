@@ -11,4 +11,6 @@
 
     <dimen name="default_divider_height">1dp</dimen>
     <dimen name="default_divider_padding">4dp</dimen>
+
+    <dimen name="button_delete">56dp</dimen>
 </resources>

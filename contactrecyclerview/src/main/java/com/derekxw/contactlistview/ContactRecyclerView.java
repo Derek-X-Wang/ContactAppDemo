@@ -11,8 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -255,7 +253,7 @@ public class ContactRecyclerView extends LinearLayout implements
         char first = alphabets.get(position).word.charAt(0);
         int recyclerPosition = getter.getPositionWithFirstChar(first);
         Log.d("tttttttt", "takeRecyclerViewScrollToAlphabetPosition: "+recyclerPosition);
-        ((StickyHeaderLayoutManager) recyclerView.getLayoutManager()).scrollToPosition(recyclerPosition);
+        recyclerView.getLayoutManager().scrollToPosition(recyclerPosition);
     }
 
     private void setAlphabetWordSelected(String bubbleText) {
