@@ -8,6 +8,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -97,6 +98,13 @@ public class ContactListFragment extends Fragment {
             appBarLayout.setStateListAnimator(null);
         }
         return v;
+    }
+
+    protected void setToolbar(View v) {
+        Toolbar mToolbar = (Toolbar) v.findViewById(R.id.toolbar);
+        if (mToolbar != null) {
+            mToolbar.setNavigationContentDescription(getResources().getString(R.string.app_name));
+        }
     }
 
     private void setup() {
